@@ -1,0 +1,25 @@
+
+rm all_sp_Orbitals_C_1.txt all_polarizedD_Orbitals_C_1.txt all_sp_Orbitals_C_2.txt all_polarizedD_Orbitals_C_2.txt all_sp_Orbitals_C_3.txt all_polarizedD_Orbitals_C_3.txt all_sp_Orbitals_C_4.txt all_polarizedD_Orbitals_C_4.txt
+
+
+
+for Z in {1..80}
+do
+sed -n '/Species: C/,$p' energy_$Z.txt > sp_orbital.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > d_orbital.txt
+sed '5,5!d' sp_orbital.txt >> all_sp_Orbitals_C_1.txt
+sed '6,6!d' d_orbital.txt >> all_polarizedD_Orbitals_C_1.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > sp_orbital.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > d_orbital.txt
+sed '7,7!d' sp_orbital.txt >> all_sp_Orbitals_C_2.txt
+sed '8,8!d' d_orbital.txt >> all_polarizedD_Orbitals_C_2.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > sp_orbital.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > d_orbital.txt
+sed '9,9!d' sp_orbital.txt >> all_sp_Orbitals_C_3.txt
+sed '10,10!d' d_orbital.txt >> all_polarizedD_Orbitals_C_3.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > sp_orbital.txt
+sed -n '/Species: C/,$p' energy_$Z.txt > d_orbital.txt
+sed '11,11!d' sp_orbital.txt >> all_sp_Orbitals_C_4.txt
+sed '12,12!d' d_orbital.txt >> all_polarizedD_Orbitals_C_4.txt
+rm sp_orbital.txt d_orbital.txt
+done
